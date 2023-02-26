@@ -11,7 +11,11 @@ if (a > b)
 {
     Console.WriteLine("{0} больше", a);
 }
-else
+else if (a < b)
 {
     Console.WriteLine("{0} больше", b);
+}
+else 
+{
+    Console.WriteLine("err");
 }
