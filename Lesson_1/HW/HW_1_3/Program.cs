@@ -11,7 +11,7 @@ if (a == 0)
 {
     Console.WriteLine("Четное");
 }
-else 
+else
 {
-   Console.WriteLine("Нечетное"); 
+    Console.WriteLine("Нечетное");
 }
