@@ -9,7 +9,7 @@ int b = int.Parse(s_b);
 
 if (a > b)
 {
-    Console.WriteLine("{0} больше", a);
+    Console.WriteLine("{0} больше", b);
 }
 else if (a < b)
 {
