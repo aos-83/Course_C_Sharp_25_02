@@ -11,4 +11,4 @@ void TakeNum(int num1, int num2)
         Console.WriteLine($"некратно {num1 % num2}");
     }
 }
-TakeNum(34, 5);
+TakeNum(16, 4);
