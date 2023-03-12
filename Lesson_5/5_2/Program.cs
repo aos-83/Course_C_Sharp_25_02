@@ -2,40 +2,61 @@
 //4; массив [6, 7, 19, 345, 3] -> нет
 //3; массив [6, 7, 19, 345, 3] -> да
 
-void Print(int[] arr)
+int ReadData(string msg)
 {
-    int size = arr.Length;
-    for (int i = 0; i < size; i++)
-        Console.Write($"{arr[i]} ");
-    Console.WriteLine();
+    Console.WriteLine(msg);
+    return int.Parse(Console.ReadLine() ?? "0");
 }
 
-int[] MassNums(int size, int from, int to)
+void PrintData(string res)
 {
-    int[] arr = new int[size];
+    Console.WriteLine(res);
+}
 
-    for (int i = 0; i < size; i++)
-        arr[i] = new Random().Next(from, to);
+int[] Gen1DArray(int len, int minValue, int maxValue)
+{
+    int[] arr = new int[len];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = new Random().Next(minValue, maxValue + 1);
+    }
     return arr;
 }
 
-void SumPosNeg(int[] arr, int num_1)
+void Print1DArr(int[] arr)
 {
-    for (int i = 0; i < arr.Length; i++)
+    Console.Write("[");
+    for (int i = 0; i < arr.Length - 1; i++)
     {
-        if (arr[i == num_1])
-        {
-            Console.WriteLine("Да");
-            return;
-        }
+        Console.Write(arr[i] + ", ");
     }
-    Console.WriteLine("Нет");
+    Console.WriteLine(arr[arr.Length - 1] + "]");
 }
 
-int num = int.Parse(Console.ReadLine()!);
-int start = int.Parse(Console.ReadLine()!);
-int stop = int.Parse(Console.ReadLine()!);
-int num_1 = int.Parse(Console.ReadLine()!);
-int[] mass = MassNums(num, start, stop);
-Print(mass);
-SumPosNeg(mass, num_1);
+int Search(int[] arr, int e)
+{
+    int res = -1;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] == e)
+        {
+            res = i;
+            break;
+        }
+    }
+    return res;
+}
+
+int[] testArr = Gen1DArray(12, -9, 9);
+Print1DArr(testArr);
+int element = ReadData("Какой элемент найти?: ");
+int result = Search(testArr, element);
+
+if (result >= 0)
+{
+    PrintData("Элемент найден в позиции: " + (result + 1));
+}
+else
+{
+    PrintData("В массиве элемент не найден!");
+}
