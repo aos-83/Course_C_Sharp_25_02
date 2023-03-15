@@ -19,10 +19,16 @@ int[] MassNums(int size, int from, int to)
 
 void SumPosNeg(int[] arr)
 {
-      for (int i = 0; i < arr.Length; i++)
+    int pos, neg;
+    pos = neg = 0;
+
+    for (int i = 0; i < arr.Length; i++)
     {
-        arr[i] = - arr[i];
+        if (arr[i] > 0) pos+= arr[i];
+        else 
+            neg += arr[i];
     }
+    Console.WriteLine($"Positive: {pos}");
 }
 int num = int.Parse(Console.ReadLine()!);
 int start = int.Parse(Console.ReadLine()!);
@@ -31,4 +37,3 @@ int stop  = int.Parse(Console.ReadLine()!);
 int[] mass = MassNums(num, start, stop);
 Print(mass);
 SumPosNeg(mass);
-Print(mass);

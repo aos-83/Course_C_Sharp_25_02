@@ -1,40 +1,33 @@
 ﻿// Задайте одномерный массив, заполненный  случайными числами. 
 //Найдите сумму элементов, стоящих на нечётных позициях.
 
-void Print(int[] arr)
+Console.WriteLine("Введите размер массива  ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[] numbers = new int[size];
+FillArrayRandomNumbers(numbers);
+Console.WriteLine("массив: ");
+PrintArray(numbers);
+int sum = 0;
+
+for (int z = 0; z < numbers.Length; z+=2)
+    sum = sum + numbers[z];
+
+    Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов cтоящих на нечётных позициях = {sum}");
+
+void FillArrayRandomNumbers(int[] numbers)
 {
-    int size = arr.Length;
-    for (int i =0; i<size; i++)
-        Console.Write($"{arr[i]} ");
+    for(int i = 0; i < numbers.Length; i++)
+        {
+            numbers[i] = new Random().Next(1, 10);
+        }
+}
+void PrintArray(int[] numbers)
+{
+    Console.Write("[ ");
+    for(int i = 0; i < numbers.Length; i++)
+        {
+            Console.Write(numbers[i] + " ");
+        }
+    Console.Write("]");
     Console.WriteLine();
 }
-
-int[] MassNums(int size, int from, int to)
-{
-    int[] arr=new int[size];
-
-    for (int i = 0; i < size; i++)
-        arr[i] = new Random().Next(from, to);
-    return arr;
-}
-
-void SumPosNeg(int[] arr)
-{
-    int pos, neg;
-    pos = neg = 0;
-
-    for (int i = 0; i < arr.Length; i++)
-    {
-        if (arr[i] > 0) pos+= arr[i];
-        else 
-            neg += arr[i];
-    }
-    Console.WriteLine($"Positive: {pos}");
-}
-int num = int.Parse(Console.ReadLine()!);
-int start = int.Parse(Console.ReadLine()!);
-int stop  = int.Parse(Console.ReadLine()!);
-
-int[] mass = MassNums(num, start, stop);
-Print(mass);
-SumPosNeg(mass);
